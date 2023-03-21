@@ -1,0 +1,62 @@
+.link {
+    font-family: 'fa5-proxima-nova';
+    color: #fff;
+    font-size: 16px;
+    font-weight: 500;
+    position: relative;
+    cursor: pointer;
+
+    &:after {
+        content: '';
+        display: block;
+        position: absolute; /* позиционируем относительно ссылки */
+        background: #ff5100;
+        bottom: -9px;
+        height: 2px; /* высота относительно высоты ссылки */
+        width: 0%; /* изначально ширина полосы подчеркивания равна 0% */
+        transition: 0.3s; /* для плавного изменения ширины, прозрачности, тени(свечения) */
+        border-radius: 100px;
+        opacity: 0; /* изначально полоса полностью прозрачна */
+        box-shadow: 0 0 16px rgba(42,157,143,0);
+       
+      }
+      &:hover {
+        color: #cbeff9;
+        text-shadow: 0 0 16px rgba(255, 255, 255, 0.64);
+      }
+      
+      /* При наведении на ссылку, псевдоэлемент :after становится непрозрачным и шириной 100% относительно текста ссылки*/
+      &:hover:after {
+        width: 100%;
+        opacity: 1;
+        box-shadow: 0 0 16px rgba(42,157,143,0.88);
+      }
+}
+
+.linkActive {
+    font-family: 'fa5-proxima-nova';
+    color: #fff;
+    font-size: 16px;
+    font-weight: 500;
+    position: relative;
+    cursor: pointer;
+
+    &:after {
+        content: '';
+        display: block;
+        position: absolute; /* позиционируем относительно ссылки */
+        background: #ff5100;
+        bottom: -9px;
+        height: 2px; /* высота относительно высоты ссылки */
+        width: 100%; /* изначально ширина полосы подчеркивания равна 0% */
+        transition: 0.3s; /* для плавного изменения ширины, прозрачности, тени(свечения) */
+        border-radius: 100px;
+        box-shadow: 0 0 16px rgba(42,157,143,0);
+       
+      }
+      &:hover {
+        color: #cbeff9;
+        text-shadow: 0 0 16px rgba(255, 255, 255, 0.64);
+      }
+      
+}
