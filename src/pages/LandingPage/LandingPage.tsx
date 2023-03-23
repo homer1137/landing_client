@@ -1,10 +1,10 @@
-import { Ref, useRef } from "react";
+import {  useRef } from "react";
 import { About } from "../../components/About/About";
 import { Header } from "../../components/Header/Header";
 import { ScrollToTop } from "../../components/ScrollToTop/ScrollToTop";
-import { ServiceFor } from "../../components/ServiceFor/ServiceFor";
+import { WhyWe } from "../../components/Why/WhyWe";
 import { VideoBackground } from "../../components/VideoBackground/VideoBackground";
-import { WhyWe } from "../../components/WhyWe/WhyWe";
+import { ServiceFor } from "../../components/WhyWe/ServiceFor";
 import styles from "./LandingPage.module.scss";
 
 interface Props {}
@@ -57,15 +57,17 @@ export const LandingPage = ({}: Props) => {
       <div>
         <VideoBackground />
       </div>
-      <div ref={serviceFor}>
-        <WhyWe />
+      <div ref={whyWe}>
+        <ServiceFor />
       </div>
       <div ref={about}>
         <About />
       </div>
-      <div ref={whyWe}>
-        <ServiceFor />
+      <div ref={serviceFor}>
+        <WhyWe />
       </div>
+      
+     
     </div>
   );
 };

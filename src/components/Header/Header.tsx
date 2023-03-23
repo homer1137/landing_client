@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { HeaderLink } from "../HeaderLink/HeaderLink";
+import { HeaderLink } from "./HeaderLink/HeaderLink";
 import styles from "./Header.module.scss";
 
 interface Section {
@@ -23,6 +23,7 @@ export const Header = ({scrollToSection, sections}: Props) => {
       <ul className={styles.header}>
         {sections.map((item, index) => (
           <li
+            key={item.name}
             onClick={() => {
               setActive(sections.map((it, ind)=>{
                 if(ind===index){

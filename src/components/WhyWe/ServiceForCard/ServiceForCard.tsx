@@ -1,4 +1,4 @@
-import styles from "./WhyWeCard.module.scss";
+import styles from "./ServiceForCard.module.scss";
 import { TbRocket } from "react-icons/tb";
 import { GiPisaTower, GiPodiumWinner } from "react-icons/gi";
 import { IoIosMale} from "react-icons/io";
@@ -7,7 +7,7 @@ interface Props {
   icon: string;
 }
 
-export const WhyWeCard = ({ title, icon }: Props) => {
+export const ServiceForCard = ({ title, icon }: Props) => {
 
     function getPic(pic:string){
         switch (pic) {
@@ -21,7 +21,7 @@ export const WhyWeCard = ({ title, icon }: Props) => {
     }
 
   return (
-    <div className={styles.whyWeCard}>
+    <div className={styles.serviceForCard}>
         {getPic(icon)}
       <h4 className={styles.persons}>{title}</h4>
     </div>

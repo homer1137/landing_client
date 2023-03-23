@@ -8,8 +8,8 @@ interface Props {
 export const HeaderLink =({name, active}:Props)=>{
 
     return (
-        <li className={active?styles.linkActive:styles.link}>
+        <div className={active?styles.linkActive:styles.link}>
             {name}
-        </li>
+        </div>
     )
 }

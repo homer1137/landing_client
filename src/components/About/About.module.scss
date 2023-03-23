@@ -1,5 +1,79 @@
 .about {
+
+    padding: 100px 0;
+    background: white;
+    max-width: 1140px;
+    margin: 0 auto;
+
+    .wrapper {
+        display: flex;
+
+        padding-left: 20px;
+        padding-right: 20px;
+
+        @media(max-width: 1000px) {
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+        .picWrapper{
+            display: flex;
+            justify-content: center;
+            .pic {
+                padding-right: 50px;
     
-    height: 100vh;
-    background-color:rgb(182, 32, 237);
+                @media(max-width: 1000px) {
+                    padding-right: 0;
+                    max-width: 80%;
+                    height: auto;
+                    margin: 0 auto;
+                }
+            }
+        }
+        
+
+        .textWrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            .title {
+                font-weight: 700;
+                color: #252525;
+                font-size: 48px;
+                margin-bottom: 15px;
+                @media(max-width: 1000px) {
+                    text-align: center;
+                }
+            }
+
+            .line {
+                width: 80px;
+                height: 2px;
+                background-color: #ff6a18;
+                margin-bottom: 60px;
+            }
+
+            .description {
+                font-size: 1rem;
+                font-weight: 400;
+                line-height: 1.5;
+                font-family: 'fa5-proxima-nova', sans-serif;
+                color: #7d8693;
+            }
+
+        }
+    }
+
+    .cardWrapper {
+        padding-left: 20px;
+        padding-right: 20px;
+        display: flex;
+        justify-content: space-between;
+
+        @media(max-width: 1000px) {
+            flex-direction: column;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+    }
 }

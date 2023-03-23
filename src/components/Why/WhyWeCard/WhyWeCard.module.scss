@@ -1,0 +1,45 @@
+.whyWeCard {
+    flex: 0 0 33.333333%;
+    max-width: 33.333333%;
+    padding: 0 10px 0 10px;
+    margin-bottom: 50px;
+    @media(max-width: 1000px) {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+
+    @media(max-width: 600px){
+        flex: 0 0 100%;
+        max-width: 100%;
+        align-self:flex-start;
+    }
+    .titleWrapper {
+        display: flex;
+        margin-bottom: 15px;
+        .icon {
+            margin-right: 10px;
+            width: 29px;
+            height: 29px;
+            fill: #ff6a18;
+            @media (max-width: 768px) {
+                margin-right: 20px;
+            }
+        }
+        .title {
+            font-size: 25px;
+            font-weight: bold;
+            color: #293036;
+            font-family: 'fa5-proxima-nova', sans-serif;
+            line-height: 1.2;
+        }
+    }
+
+    .description {
+        font-family: 'fa5-proxima-nova', sans-serif;
+        color: #7d8693;
+        font-weight: 400;
+        line-height: 1.5;
+        text-align: left;
+    }
+
+}

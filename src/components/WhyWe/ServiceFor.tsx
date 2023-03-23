@@ -1,8 +1,8 @@
-import styles from "./WhyWe.module.scss";
-import { WhyWeCard } from "./WhyWeCard/WhyWeCard";
+import styles from "./ServiceFor.module.scss";
+import { ServiceForCard } from "./ServiceForCard/ServiceForCard";
 interface Props {}
 
-export const WhyWe = ({}: Props) => {
+export const ServiceFor = ({}: Props) => {
   const cards = [
     { id: 1, title: "fast finish", svg: "fast" },
     { id: 2, title: "erection problem", svg: "erection" },
@@ -10,13 +10,13 @@ export const WhyWe = ({}: Props) => {
     { id: 4, title: "have penis", svg: "penis" },
   ];
   return (
-    <section className={styles.whyWe}>
+    <section className={styles.serviceFor}>
       <div className={styles.wrapper}>
         <h2 className={styles.title}>Кому подойдет наш сервис</h2>
         <div className={styles.line}></div>
         <div className={styles.cardWrapper}>
           {cards.map((item) => (
-            <WhyWeCard title={item.title} icon={item.svg} key={item.id} />
+            <ServiceForCard title={item.title} icon={item.svg} key={item.id} />
           ))}
         </div>
       </div>

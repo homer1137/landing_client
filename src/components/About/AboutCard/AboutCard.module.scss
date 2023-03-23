@@ -1,0 +1,59 @@
+.aboutCard {
+
+    padding: 15px 30px;
+    border-radius: 30px;
+    display: flex;
+    border: 1px solid #ddd;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    align-items: center;
+    justify-content: center;
+    color: #ff6a18;
+    transition: 0.3s ease-out;
+    @media(max-width: 1000px){
+        margin-bottom: 20px;
+    }
+    &:hover{
+        box-shadow:none;
+        background-color:#252525;
+        .icon{
+            fill: white;
+        }
+        .textWrapper {
+            .text{
+                color: white;
+            }
+        }
+    }
+    
+    .icon {
+        width: 24px;
+        height: 24px;
+        fill: #47425d;
+        margin-right: 15px;
+        
+        @media (max-width: 768px) {
+            margin-right: 20px;
+        }
+    }
+
+    .textWrapper {
+        display: flex;
+        flex-direction: column;
+        max-width: 140px;
+        .result {
+            font-size: 32px;
+            color: #ff6a18;
+            font-weight: bold;
+        }
+
+        .text {
+            font-size: 16px;
+            line-height: 1.3;
+            color: #ff6a18;
+        }
+
+    }
+
+
+
+}
