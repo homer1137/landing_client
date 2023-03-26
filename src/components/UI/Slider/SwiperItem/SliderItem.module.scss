@@ -1,0 +1,29 @@
+.sliderItem {
+    width: 100%;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    transition: 0.5s ease-out;
+    .imageWrapper {
+        border-radius: 50%;
+        border: 5px solid #fff;
+        width: 80px;
+        height: 80px;
+        box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+
+        .swiperImg {
+            width: 100%;
+            height: auto;
+            user-select: none;
+            pointer-events: none;
+        }
+    }
+
+
+}
+.active{
+    transform: scale(1.4);
+}

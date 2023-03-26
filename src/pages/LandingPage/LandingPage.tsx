@@ -5,6 +5,8 @@ import { ScrollToTop } from "../../components/ScrollToTop/ScrollToTop";
 import { WhyWe } from "../../components/Why/WhyWe";
 import { VideoBackground } from "../../components/VideoBackground/VideoBackground";
 import { ServiceFor } from "../../components/WhyWe/ServiceFor";
+import { Reviews } from "../../components/Reviews/Reviews";
+
 import styles from "./LandingPage.module.scss";
 
 interface Props {}
@@ -13,7 +15,7 @@ export const LandingPage = ({}: Props) => {
   const serviceFor = useRef<null | HTMLDivElement>(null);
   const about = useRef<null | HTMLDivElement>(null);
   const whyWe = useRef<null | HTMLDivElement>(null);
-
+  const reviews = useRef<null | HTMLDivElement>(null);
   const scrollToSection = (
     elementRef: React.MutableRefObject<HTMLDivElement>
   ) => {
@@ -43,10 +45,10 @@ export const LandingPage = ({}: Props) => {
       argument: whyWe,
     },
     {
-      name: "Last",
+      name: "Reviews",
       status: false,
       scrollFn: scrollToSection,
-      argument: serviceFor,
+      argument: reviews,
     },
   ];
 
@@ -65,6 +67,9 @@ export const LandingPage = ({}: Props) => {
       </div>
       <div ref={serviceFor}>
         <WhyWe />
+      </div>
+      <div ref={reviews}>
+        <Reviews />
       </div>
       
      
