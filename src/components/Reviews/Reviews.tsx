@@ -1,13 +1,17 @@
-import {useState} from 'react'
+import { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Autoplay } from "swiper";
+import {MdPreview} from 'react-icons/md';
+import {AiFillStar} from 'react-icons/ai'
+
 import { SliderItem } from "../UI/Slider/SwiperItem/SliderItem";
-import { SwiperItem } from "../UI/Swiper/SwiperItem/SwiperItem";
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
-import "swiper/css/scrollbar";
-import "swiper/css/autoplay";
+
+
+import "swiper/scss";
+import "swiper/scss/navigation";
+import "swiper/scss/pagination";
+import "swiper/scss/scrollbar";
+import "swiper/scss/autoplay";
 
 import styles from "./Reviews.module.scss";
 interface Props {}
@@ -28,8 +32,7 @@ export const Reviews = ({}: Props) => {
       id: 1,
       whois: "engenier",
       name: "Ivanov Ivan2",
-      description:
-        "Добрый вечер, а что это значит? ",
+      description: "Добрый вечер, а что это значит? Значит день бы по доброму начат. Значит день бы по доброму прожит. Он умножит счастливые дни ",
       rating: 5,
       image: "/reviews/client5.jpg",
     },
@@ -37,8 +40,7 @@ export const Reviews = ({}: Props) => {
       id: 2,
       whois: "teacher",
       name: "Ivanov Ivan3",
-      description:
-        " Значит день бы по доброму начат ",
+      description: " Значит день бы по доброму начат. Добрый вечер, а что это значит? Значит день бы по доброму начат. Значит день бы по доброму прожит. Он умножит счастливые дни  ",
       rating: 5,
       image: "/reviews/nastya.png",
     },
@@ -46,8 +48,7 @@ export const Reviews = ({}: Props) => {
       id: 3,
       whois: "doctor",
       name: "Ivanov Ivan4",
-      description:
-        " Значит день бы по доброму прожит ",
+      description: "Добрый вечер, а что это значит? Значит день бы по доброму начат. Значит день бы по доброму прожит. Он умножит счастливые дни ",
       rating: 5,
       image: "/reviews/noskova.png",
     },
@@ -55,8 +56,7 @@ export const Reviews = ({}: Props) => {
       id: 4,
       whois: "student",
       name: "Ivanov Ivan5",
-      description:
-        " Он умножит счастливые дни ",
+      description: "Добрый вечер, а что это значит? Значит день бы по доброму начат. Значит день бы по доброму прожит. Он умножит счастливые дни ",
       rating: 5,
       image: "/reviews/roman.png",
     },
@@ -66,13 +66,27 @@ export const Reviews = ({}: Props) => {
       <div className={styles.wrapper}>
         <h2 className={styles.title}>Отзывы</h2>
         <div className={styles.line}></div>
+        <div className={styles.iconWrapper}>
+        <MdPreview className={styles.icon}/>
+        </div>
         <div className={styles.description}>
           {items[activeIndex].description}
+        </div>
+        <div className={styles.stars}>
+          {Array(5).fill(1).map((item, indes)=>(
+            <AiFillStar className={styles.star}/>
+          ))}
+        </div>
+        <div className={styles.name}>
+          {items[activeIndex].name}
+        </div>
+        <div className={styles.whois}>
+          {items[activeIndex].whois}
         </div>
         <div className={styles.cardWrapper}>
           <Swiper
             modules={[Navigation, Pagination, Autoplay]}
-            spaceBetween={20}
+            spaceBetween={10}
             slidesPerView={3}
             centeredSlides={true}
             autoplay={{
@@ -83,13 +97,17 @@ export const Reviews = ({}: Props) => {
             pagination={{ clickable: true }}
             onSlideChange={(swiper) => setActiveIndex(swiper.activeIndex)}
             onSwiper={(swiper) => console.log(swiper)}
+            className={styles.swiper}
           >
             {items.map((item) => (
               <SwiperSlide key={item.id}>
-                 {({ isActive }) => (
-      <SliderItem image={item.image} name={item.name} active={isActive}/>
-    )}
-                
+                {({ isActive }) => (
+                  <SliderItem
+                    image={item.image}
+                    name={item.name}
+                    active={isActive}
+                  />
+                )}
               </SwiperSlide>
             ))}
           </Swiper>
