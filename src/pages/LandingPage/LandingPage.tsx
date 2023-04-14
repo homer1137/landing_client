@@ -6,6 +6,7 @@ import { WhyWe } from "../../components/Why/WhyWe";
 import { VideoBackground } from "../../components/VideoBackground/VideoBackground";
 import { ServiceFor } from "../../components/WhyWe/ServiceFor";
 import { Reviews } from "../../components/Reviews/Reviews";
+import { useAppSelector } from "../../store/hooks";
 
 import styles from "./LandingPage.module.scss";
 
@@ -24,7 +25,8 @@ export const LandingPage = ({}: Props) => {
       behavior: "smooth",
     });
   };
-
+  const error = useAppSelector((state)=>state.users.error)
+  const loading = useAppSelector((state)=>state.users.loading)
   const sections = [
     {
       name: "Service for",
@@ -56,6 +58,8 @@ export const LandingPage = ({}: Props) => {
     <div className={styles.landingPage}>
       <Header scrollToSection={scrollToSection} sections={sections} />
       <ScrollToTop />
+      {error&&<div>{error}</div>}
+      {loading&&<div>{loading}</div>}
       <div>
         <VideoBackground />
       </div>
