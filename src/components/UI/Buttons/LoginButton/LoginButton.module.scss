@@ -1,0 +1,19 @@
+.LoginButton {
+    color: #fff;
+    height: 40px;
+    min-width: 152px;
+    line-height: 36px;
+    font-size: 14px;
+    font-weight: 500;
+    display: inline-block;
+    border: 2px solid #ff6a18;
+    text-align: center;
+    border-radius: 20px;
+    background-color: transparent;
+    transition: 0.3s ease-out;
+    cursor: pointer;
+
+    &:hover {
+        background-color: #ff6a18;
+    }
+}

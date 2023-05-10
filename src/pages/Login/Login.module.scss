@@ -1,0 +1,74 @@
+/* Bordered form */
+.Login {
+    padding-top: 100px;
+    max-width: 500px;
+    margin: 0 auto;
+
+    .title {
+        border-radius: 5px 5px 0 0;
+        background: #F7F7F7;
+        padding: 0.75rem 1.25rem;
+        margin-bottom: 0;
+        background-color: #f8f9fc;
+        color: #293036;
+        font-weight: 700;
+        font-size: 16px;
+
+    }
+
+    .title2 {
+        padding: 0.75rem 1.25rem;
+        color: #6e707e;
+        font-weight: 700;
+        font-size: 16px;
+
+    }
+    .registrationLink {
+        color: #0b508c;
+    }
+
+    .form {
+        display: flex;
+        flex-direction: column;
+        min-width: 0;
+        word-wrap: break-word;
+        background-color: #fff;
+        background-clip: border-box;
+        border: 1px solid #e3e6f0;
+        border-radius: 0 0 5px 5px;
+        padding: 20px;
+    }
+
+    .label {
+        font-weight: bolder;
+        color: #7d8693;
+        font-family: 'fa5-proxima-nova', sans-serif;
+        font-size: 16px;
+        margin-bottom: 8px;
+
+    }
+
+    .input {
+        font-size: 1rem;
+        font-weight: 400;
+        line-height: 1.5;
+        color: #6e707e;
+        background-color: #fff;
+        background-clip: padding-box;
+        outline: none;
+        border: 1px solid #d1d3e2;
+        margin-bottom: 30px;
+        padding: 5px 10px;
+        border-radius: 4px;
+        transition: 0.3s ease-out;
+        &:focus {
+            background-color: #f7f7de;
+            border-color: #20d5cc;
+        }
+
+        &:hover {
+            background-color: #f7f7de;
+        }
+    }
+}
+

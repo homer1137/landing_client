@@ -5,10 +5,10 @@ import { useAppDispatch, useAppSelector } from "../../store/hooks";
 import { registration } from "../../store/slices/userSlice";
 import { IVideo } from "../../models/IVideo";
 
-import "./Register.css";
 import { VideoService } from "../../services/VideoService";
-import { TbH1 } from "react-icons/tb";
-// import PostServece from "../../API/PostServece";
+
+import styles from "./Register.module.scss";
+import { SuccessButton } from "../../components/UI/Buttons/SuccessButton/SuccessButton";
 
 export function Register() {
   const [name, setName] = useState("");
@@ -102,8 +102,8 @@ export function Register() {
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
   const user = useAppSelector((state) => state.users.user);
-  const apiError = useAppSelector((state)=>state.users.error)
-  console.log('user', user)
+  const apiError = useAppSelector((state) => state.users.error);
+
   async function getVideos() {
     try {
       const response = await VideoService.getVideos();
@@ -114,22 +114,28 @@ export function Register() {
       console.log(e);
     }
   }
-  console.log('apiEror', apiError)
 
   return (
     <>
-      {/* {regError&&<div className="error">произошла ошибка{regError}</div>}
+      {/* {regError&&<div className={styles.error}>произошла ошибка{regError}</div>}
       {pending&&<h2>Loading</h2>} */}
-      <form onSubmit={submit}>
-        <div className="container">
-          <h1>Register</h1>
-          <p>Please fill in this form to create an account.</p>
-          <hr />
-
-          <label htmlFor="name">
-            <b>Name</b>
+      <div className={styles.Register}>
+        <h2 className={styles.title2}>
+          Already have an account?{" "}
+          <Link to="/login">
+            <span className={styles.registrationLink}>Sign in</span>
+          </Link>
+        </h2>
+        <h1 className={styles.title}>Register</h1>
+        <form onSubmit={submit} className={styles.form}>
+          <label className={styles.label}>
+            Please fill in this form to create an account
           </label>
-          {nameDirty && nameError && <div className="error">{nameError}</div>}
+
+          <label htmlFor="name" className={styles.label}>
+            Name
+          </label>
+          {nameDirty && nameError && <div className={styles.error}>{nameError}</div>}
           <input
             onBlur={(e) => blurHandler(e)}
             type="text"
@@ -138,13 +144,14 @@ export function Register() {
             required
             onChange={(e) => nameHandler(e)}
             value={name}
+            className={styles.input}
           />
 
-          <label htmlFor="email">
-            <b>Email</b>
+          <label htmlFor="email" className={styles.label}>
+            Email
           </label>
           {emailDirty && emailError && (
-            <div className="error">{emailError}</div>
+            <div className={styles.error}>{emailError}</div>
           )}
           <input
             onBlur={(e) => blurHandler(e)}
@@ -154,13 +161,14 @@ export function Register() {
             required
             onChange={(e) => emailHandler(e)}
             value={email}
+            className={styles.input}
           />
 
-          <label htmlFor="password">
-            <b>Password</b>
+          <label htmlFor="password" className={styles.label}>
+            Password
           </label>
           {passwordDirty && passwordError && (
-            <div className="error">{passwordError}</div>
+            <div className={styles.error}>{passwordError}</div>
           )}
           <input
             onBlur={(e) => blurHandler(e)}
@@ -170,13 +178,14 @@ export function Register() {
             required
             onChange={(e) => passwordHandler(e)}
             value={password}
+            className={styles.input}
           />
 
-          <label htmlFor="password2">
-            <b>Repeat Password</b>
+          <label htmlFor="password2" className={styles.label}>
+            Repeat Password
           </label>
           {password2Dirty && password2Error && (
-            <div className="error">{password2Error}</div>
+            <div className={styles.error}>{password2Error}</div>
           )}
           <input
             onBlur={(e) => blurHandler(e)}
@@ -186,20 +195,12 @@ export function Register() {
             required
             onChange={(e) => password2Handler(e)}
             value={password2}
+            className={styles.input}
           />
-          <hr />
+          <SuccessButton title="Register" />
+        </form>
+      </div>
 
-          <button type="submit" className="registerbtn">
-            Register
-          </button>
-        </div>
-
-        <div className="container signin">
-          <Link to={`/login`}>
-            <p>Already have an account?</p>
-          </Link>
-        </div>
-      </form>
       {user?.is_activated ? (
         <h1 className="ideoText">Аккаунт подтвержден</h1>
       ) : (

@@ -31,7 +31,7 @@ export const login = createAsyncThunk<
   { rejectValue: string }
 >("users/login", async (auth, { rejectWithValue }) => {
   const response = await AuthService.login(auth.email, auth.password);
-  console.log("login resp:", response);
+
   if (response.status !== 200) {
     return rejectWithValue("Server Error!");
   }
@@ -80,7 +80,7 @@ export const checkAuth = createAsyncThunk<
     `${API_URL}/refresh`,
     { withCredentials: true }
   );
-  console.log('status', response)
+
   if (response.status !== 200) {
     return rejectWithValue("Server Error!");
   }
@@ -172,7 +172,7 @@ export const userSlice = createSlice({
     });
     builder.addCase(checkAuth.rejected, (state, action) => {
       state.loading = "failed";
-      console.log(state.error)
+
       state.error = action.payload as string;
       
     });

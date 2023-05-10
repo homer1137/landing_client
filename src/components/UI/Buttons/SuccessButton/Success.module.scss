@@ -1,0 +1,26 @@
+.SuccessButton {
+ 
+    padding: 7px 20px;
+    
+    line-height: 18px;
+    font-size: 16px;
+    font-weight: 400;
+    display: inline-block;
+    color: #fff;
+    background-color: #ff6a18;
+    border-color: #ff6a18;
+    text-align: center;
+    // border: 1px solid;
+    border-radius: 4px;
+    transition: 0.3s ease-out;
+    cursor: pointer;
+
+    &:hover {
+        background-color: #d4550f;
+    }
+
+    &:active {
+        background-color: #e57437;
+        border-color: #d4e308;
+    }
+}

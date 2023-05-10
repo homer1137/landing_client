@@ -1,9 +1,13 @@
 import { useState } from "react";
 import { HeaderLink } from "./HeaderLink/HeaderLink";
-import styles from "./Header.module.scss";
-import { Link, Outlet } from "react-router-dom";
+
+import { Link, Outlet, useLocation } from "react-router-dom";
 import { useAppSelector, useAppDispatch } from "../../store/hooks";
 import { logout } from "../../store/slices/userSlice";
+import { LoginButton } from "../UI/Buttons/LoginButton/LoginButton";
+
+
+import styles from "./Header.module.scss";
 interface Section {
   name: string;
   status: boolean;
@@ -21,12 +25,13 @@ export const Header = ({ scrollToSection, sections }: Props) => {
   const isAuth = useAppSelector((state) => state.users.isAuth);
   const userEmail = useAppSelector((state) => state.users.user?.email);
   const dispatch = useAppDispatch()
+  const location = useLocation();
 
 
   return (
     <>
       <ul className={styles.header}>
-        {sections.map((item, index) => (
+        {(location.pathname==='/')&&sections.map((item, index) => (
           <li
             key={item.name}
             onClick={() => {
@@ -43,21 +48,18 @@ export const Header = ({ scrollToSection, sections }: Props) => {
             <HeaderLink name={item.name} active={active[index].status} />
           </li>
         ))}
-        <li key={"sadf"}>
-          <Link to="/">Main</Link>
-        </li>
+      {(location.pathname!=='/')&&<li key={"sadf"}>
+        <Link to="/">Main</Link>
+      </li>}
         {!isAuth ? (
           <li key={"sadfc"}>
-            <Link to="/login">Login</Link>
+            <Link to="/login"><LoginButton title="Login"/></Link>
           </li>
         ) : (
-          <li key="br">
-            <button onClick={()=>{dispatch(logout())}}>logout</button>
+          <li key="br" onClick={()=>{dispatch(logout())}}>
+            <LoginButton title='Logout' />
           </li>
         )}
-        <li key={"saeadf"}>
-          <Link to="/registration">Registration</Link>
-        </li>
         <li key={"sad12f"}>
           <Link to="/registration">
             {isAuth
