@@ -7,12 +7,33 @@
     position: fixed;
     top: 0;
     z-index: 99;
-
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 0 4%;
+    
 
-   
+    @media(max-width: 767px) {
+        display: none;
+    }
 
 }
+
+.headerMobile {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    background-color: #293036;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 101;
+    position: fixed;
+
+    .loginButton {
+        @media(max-width: 767px) {
+            margin-bottom: 40px;
+        }
+    }
+}
+

@@ -73,8 +73,8 @@ export const Reviews = ({}: Props) => {
           {items[activeIndex].description}
         </div>
         <div className={styles.stars}>
-          {Array(5).fill(1).map((item, indes)=>(
-            <AiFillStar className={styles.star}/>
+          {Array(5).fill(1).map((item, index)=>(
+            <AiFillStar key={index} className={styles.star}/>
           ))}
         </div>
         <div className={styles.name}>

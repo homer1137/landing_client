@@ -1,4 +1,4 @@
-import {  useRef } from "react";
+import {  useEffect, useRef } from "react";
 import { About } from "../../components/About/About";
 import { Header } from "../../components/Header/Header";
 import { ScrollToTop } from "../../components/ScrollToTop/ScrollToTop";
@@ -9,14 +9,19 @@ import { Reviews } from "../../components/Reviews/Reviews";
 import { useAppSelector } from "../../store/hooks";
 
 import styles from "./LandingPage.module.scss";
+import { useDispatch } from "react-redux";
+import { addSections } from "../../store/slices/sectionsSlice";
 
 interface Props {}
 
 export const LandingPage = ({}: Props) => {
+
+  const dispatch = useDispatch()
   const serviceFor = useRef<null | HTMLDivElement>(null);
   const about = useRef<null | HTMLDivElement>(null);
   const whyWe = useRef<null | HTMLDivElement>(null);
   const reviews = useRef<null | HTMLDivElement>(null);
+  
   const scrollToSection = (
     elementRef: React.MutableRefObject<HTMLDivElement>
   ) => {
@@ -54,12 +59,14 @@ export const LandingPage = ({}: Props) => {
     },
   ];
 
+  useEffect(()=>{if(sections){dispatch(addSections(sections))}},[])
+  
   return (
     <div className={styles.landingPage}>
-      <Header scrollToSection={scrollToSection} sections={sections} />
+     
       <ScrollToTop />
-      {error&&<div>{error}</div>}
-      {loading&&<div>{loading}</div>}
+      {/* {error&&<div>{error}</div>}
+      {loading&&<div>{loading}</div>} */}
       <div>
         <VideoBackground />
       </div>

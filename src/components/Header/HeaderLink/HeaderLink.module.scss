@@ -5,6 +5,9 @@
     font-weight: 500;
     position: relative;
     cursor: pointer;
+    @media(max-width: 767px) {
+      margin-bottom: 40px;
+  }
 
     &:after {
         content: '';
@@ -40,6 +43,10 @@
     font-weight: 500;
     position: relative;
     cursor: pointer;
+
+    @media(max-width: 767px) {
+      margin-bottom: 40px;
+  }
 
     &:after {
         content: '';

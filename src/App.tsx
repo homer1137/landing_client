@@ -62,7 +62,7 @@ function App() {
         <Route
           path="/"
           element={
-            <Header scrollToSection={scrollToSection} sections={sections} />
+            <Header />
           }
         >
           {" "}
