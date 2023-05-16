@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import {  useRef, useState } from "react";
 import { HeaderLink } from "./HeaderLink/HeaderLink";
 
 import { Link, Outlet, useLocation } from "react-router-dom";
@@ -17,29 +17,41 @@ interface Section {
 }
 
 interface Props {
- 
+ sections: Section[];
 }
 
-export const Header = ({}: Props) => {
+export const Header = ({sections}: Props) => {
   const [hamburgerOpen, setHamburgerOpen] = useState(false);
   const isAuth = useAppSelector((state) => state.users.isAuth);
   const userEmail = useAppSelector((state) => state.users.user?.email);
   const dispatch = useAppDispatch();
   const location = useLocation();
+  
+
+  
 
   function toggleHambuger() {
     setHamburgerOpen((prev) => !prev);
   }
 
+  const scrollToSection = (
+    elementRef: React.MutableRefObject<HTMLDivElement>
+  ) => {
+    window.scrollTo({
+      top: elementRef.current.offsetTop,
+      behavior: "smooth",
+    });
+  };
+
   const isMobile = useMediaQuery("(max-width: 767px)");
-  const sections = useAppSelector((state)=>state.sections.sections)
+  
   const [active, setActive] = useState(sections);
 
   return (
     <>
       <div>
         <ul className={styles.header}>
-          {location.pathname === "/" &&
+          {(location.pathname === "/" && sections.length>2) &&
             sections.map((item, index) => (
               <li
                 key={item.name}
@@ -52,10 +64,10 @@ export const Header = ({}: Props) => {
                     })
                   );
 
-                  item.scrollFn(item.argument as any);
+                  scrollToSection(item.argument as any);
                 }}
               >
-                <HeaderLink name={item.name} active={active[index].status} />
+               {active.length && <HeaderLink name={item.name} active={active[index].status} />}
               </li>
             ))}
           {location.pathname !== "/" && (
@@ -107,7 +119,7 @@ export const Header = ({}: Props) => {
                           } else return { ...it, status: false };
                         })
                       );
-                      item.scrollFn(item.argument as any);
+                      scrollToSection(item.argument as any);
                     }}
                   >
                     <HeaderLink

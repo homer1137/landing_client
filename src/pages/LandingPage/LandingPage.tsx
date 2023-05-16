@@ -10,56 +10,13 @@ import { useAppSelector } from "../../store/hooks";
 
 import styles from "./LandingPage.module.scss";
 import { useDispatch } from "react-redux";
-import { addSections } from "../../store/slices/sectionsSlice";
 
-interface Props {}
 
-export const LandingPage = ({}: Props) => {
+interface Props {serviceFor: any, about: any, whyWe: any, reviews: any}
 
-  const dispatch = useDispatch()
-  const serviceFor = useRef<null | HTMLDivElement>(null);
-  const about = useRef<null | HTMLDivElement>(null);
-  const whyWe = useRef<null | HTMLDivElement>(null);
-  const reviews = useRef<null | HTMLDivElement>(null);
-  
-  const scrollToSection = (
-    elementRef: React.MutableRefObject<HTMLDivElement>
-  ) => {
-    window.scrollTo({
-      top: elementRef.current.offsetTop,
-      behavior: "smooth",
-    });
-  };
-  const error = useAppSelector((state)=>state.users.error)
-  const loading = useAppSelector((state)=>state.users.loading)
-  const sections = [
-    {
-      name: "Service for",
-      status: false,
-      scrollFn: scrollToSection,
-      argument: serviceFor,
-    },
-    {
-      name: "About",
-      status: false,
-      scrollFn: scrollToSection,
-      argument: about,
-    },
-    {
-      name: "Why we",
-      status: false,
-      scrollFn: scrollToSection,
-      argument: whyWe,
-    },
-    {
-      name: "Reviews",
-      status: false,
-      scrollFn: scrollToSection,
-      argument: reviews,
-    },
-  ];
+export const LandingPage = ({serviceFor, about, whyWe, reviews}: Props) => {
 
-  useEffect(()=>{if(sections){dispatch(addSections(sections))}},[])
+
   
   return (
     <div className={styles.landingPage}>

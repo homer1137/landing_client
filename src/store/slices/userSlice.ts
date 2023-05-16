@@ -26,13 +26,15 @@ const initialState: UserState = {
 };
 
 export const login = createAsyncThunk<
-  AuthResponse | undefined,
+  AuthResponse | any,
   { email: string; password: string },
   { rejectValue: string }
 >("users/login", async (auth, { rejectWithValue }) => {
+  console.log('hi')
   const response = await AuthService.login(auth.email, auth.password);
-
+console.log('respo', response)
   if (response.status !== 200) {
+
     return rejectWithValue("Server Error!");
   }
 
@@ -126,7 +128,8 @@ export const userSlice = createSlice({
     });
     builder.addCase(login.rejected, (state, action) => {
       state.loading = "failed";
-      state.error = action.payload as string;
+      console.log('action when failed', action)
+      state.error = action.error.message as string;
     });
 
     builder.addCase(registration.pending, (state) => {

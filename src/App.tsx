@@ -15,7 +15,7 @@ function App() {
     if(localStorage.getItem('token')){dispatch(checkAuth());}
     
   }, [dispatch]);
-  console.log('access token:', localStorage.getItem('token'))
+
   const serviceFor = useRef<null | HTMLDivElement>(null);
   const about = useRef<null | HTMLDivElement>(null);
   const whyWe = useRef<null | HTMLDivElement>(null);
@@ -56,17 +56,18 @@ function App() {
       argument: reviews,
     },
   ];
+
   return (
     <>
       <Routes>
         <Route
           path="/"
           element={
-            <Header />
+            <Header sections={sections}/>
           }
         >
           {" "}
-          <Route path="/" element={<LandingPage />} />
+          <Route path="/" element={<LandingPage serviceFor={serviceFor} about={about} whyWe={whyWe} reviews={reviews}/>} />
           <Route path="/login" element={<Login />} />
           <Route path="/registration" element={<Register />} />
           {/* <Route path="*" element={<ErrorPage/>} /> */}
