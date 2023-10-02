@@ -1,0 +1,95 @@
+.reviews {
+    display: flex;
+    flex-direction: column;
+    padding-top: 70px;
+    padding-bottom: 70px;
+    background-color: #f7f7f7;
+   
+    .wrapper {
+       padding: 0 20px 0 20px;
+        .title {
+            font-weight: 700;
+            color: #252525;
+            font-size: 48px;
+            line-height: 1.2;
+            text-align: center;
+            margin-bottom: 5px;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+        .line{
+            width: 80px;
+            height: 2px;
+            background-color: #ff6a18;
+            margin: 0 auto;
+            margin-bottom: 60px;
+        }
+        .iconWrapper{
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+            .icon {
+                width: 48px;
+                height: 48px;
+                fill: #ff6a18;
+            }
+        }
+      
+        .description{
+            max-width: 1010px;
+            margin: 0 auto;
+            font-size: 22px;
+            color: #7d8693;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        .stars{
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+            .star{
+                width: 18px;
+                height: 18px;
+                fill: #f1b922;
+                padding-right: 3px;
+            }
+        }
+
+        .name{
+            max-width: 1010px;
+            margin: 0 auto;
+            font-size: 22px;
+            color: #293036;
+            font-weight: 400;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .whois{
+            max-width: 1010px;
+            margin: 0 auto;
+            font-size: 16px;
+            color: #b5aec4;
+            font-weight: 400;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .cardWrapper {
+            max-width: 100%;
+            margin: 0 auto;
+            padding: 20px 0px 30px 0px;
+            display: flex;
+            align-items: center;
+            
+            .swiper{
+                max-width: 500px;
+                padding: 30px 30px 30px 30px;
+                transition: 1s ease-out;  
+            }
+            
+        }
+    }
+
+    
+}
