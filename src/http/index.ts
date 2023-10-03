@@ -2,7 +2,7 @@ import axios from "axios";
 import { AuthResponse } from "../models/response/AuthResponse";
 
 export const API_URL = `https://localhost:5000/api`;
-export const API_URL_PROD = `https://drromango.onrender.com/api`;
+export const API_URL_PROD = `https://dr-romango.onrender.com/api`;
 
 const $api = axios.create({ withCredentials: true, baseURL: API_URL_PROD });
 
